@@ -36,9 +36,9 @@ const News = (props) => {
         props.setProgess(100);
     };
 
+    
     useEffect(() => {
         if ((props.searchData)?.length ){
-            console.log("searching", props.searchData)
             setArticles(props.searchData)
         }
         else{
@@ -76,7 +76,7 @@ const News = (props) => {
                         </label>
                     </div>
                     <h1 className="mb-4" style={{ textAlign: "center", marginTop: "60px" }}>
-                        Top <b>Headlines </b> on {capitalizeFirstLetter(props.category)}
+                        Top <b>Headlines </b> on {props.srch.length > 0 ? props.srch : capitalizeFirstLetter(props.category) } 
                     </h1>
                     </div>
 
