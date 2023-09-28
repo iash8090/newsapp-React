@@ -31,11 +31,13 @@ export default function NavBar(props) {
         <li className="nav-item">
           <Link className="nav-link" to="/about">About</Link></li>
       </ul>
-      <form className="d-flex" >
-        <input className="form-control me-2" type="search" placeholder="Search" onChange={(e) => {props.setSrch(e.target.value)}} aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit" onClick={(e)=>{e.preventDefault();props.handleSearch()}}>Search</button>
-      </form>
-
+      {window.location.pathname === '/about' ? "" :
+       <form className="d-flex" >
+       <input className="form-control me-2" type="search" placeholder="Search" onChange={(e) => {props.setSrch(e.target.value)}} aria-label="Search"/>
+       <button className="btn btn-outline-success" type="submit" onClick={(e)=>{e.preventDefault();props.handleSearch()}}>Search</button>
+     </form>
+      }
+      
     </div>
   </div>
 </nav>
