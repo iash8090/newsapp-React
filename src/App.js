@@ -15,7 +15,7 @@ export default function App() {
     const handleSearch= async()=>{
         setProgess(15)
         if (srch){
-            const url = `https://api.newscatcherapi.com/v2/search?q=${srch}`;
+            const url = `https://api.newscatcherapi.com/v2/search?q=${srch}&topic=world`;
             let data = await fetch(url, {
                 method: "GET",
                 headers: {
@@ -58,7 +58,7 @@ export default function App() {
                     <LoadingBar color="#f11946" progress={progress} shadow={true} height={3}/>
                     <Routes>
                         <Route exact path="/" element={<Navigate to="/newsapp-React" />} />
-                        <Route exact path="/newsapp-React" element={<News  key="world" category="world" searchData={searchData} setProgess={setProgess} toggleMode={toggleMode}  mode={mode}/> } />
+                        <Route exact path="/newsapp-React" element={<News  key="world" category="world" srch={srch} searchData={searchData} setProgess={setProgess} toggleMode={toggleMode}  mode={mode}/> } />
                         <Route exact path="/business" element={<News  key="business" category="business" searchData={searchData} setProgess={setProgess} toggleMode={toggleMode} mode={mode}/> } />
                         <Route exact path="/entertainment" element={<News  key="entertainment" category="entertainment" searchData={searchData} setProgess={setProgess} toggleMode={toggleMode} mode={mode} /> } />
                         <Route exact path="/politics" element={<News  key="politics" category="politics" searchData={searchData} setProgess={setProgess} toggleMode={toggleMode} mode={mode}/> } />
